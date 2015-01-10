@@ -1,0 +1,21 @@
+﻿<Page
+    x:Class="ZimmerFrei_v0._1.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ZimmerFrei_v0._1"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid >
+        <Button x:Name="btnNearMe" 
+                Content="Near Me" 
+                HorizontalAlignment="Left" 
+                Margin="99,181,0,0" VerticalAlignment="Top" 
+                Height="76"
+                Width="216" Click="btnNearMe_Click"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="99,312,0,0" VerticalAlignment="Top" Height="76" Width="216" Click="Button_Click"/>
+
+    </Grid>
+</Page>

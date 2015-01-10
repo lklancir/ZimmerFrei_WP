@@ -1,0 +1,57 @@
+﻿<Page
+    x:Class="ZimmerFrei_v0._1.ListPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ZimmerFrei_v0._1"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:data="using:ZimmerFrei.Data"
+    DataContext="{Binding DefaultViewModel, RelativeSource={RelativeSource Self}}"
+    d:DataContext="{Binding Source={d:DesignData Source=/DataModel/Apartments.json, Type=data:DataSource}}"
+    mc:Ignorable="d" FontFamily="Global User Interface">
+    
+
+    <Page.Resources>
+        
+    
+    <DataTemplate x:Key="StandardTripleLineItemTemplate">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Border Background="{ThemeResource ListViewItemPlaceholderBackgroundThemeBrush}" Margin="0,9.5,0,0" Grid.Column="0" HorizontalAlignment="Left">
+                <Image Source="{Binding Cover_photo}" Stretch="UniformToFill" AutomationProperties.Name="{Binding Title}" Height="79" Width="79"/>
+            </Border>
+            <StackPanel Grid.Column="1" Margin="14.5,0,0,0">
+                <TextBlock Text="{Binding Name}" Style="{ThemeResource ListViewItemTextBlockStyle}" FontFamily="Global User Interface"/>
+                <TextBlock Text="{Binding Description}" Style="{ThemeResource ListViewItemContentTextBlockStyle}" Foreground="{ThemeResource PhoneMidBrush}" FontFamily="Global User Interface" />
+                <TextBlock Text="{Binding Stars}" Style="{ThemeResource ListViewItemSubheaderTextBlockStyle}" />
+            </StackPanel>
+        </Grid>
+    </DataTemplate>
+
+    </Page.Resources>
+
+    <Grid x:Name="LayoutRoot">
+        <Hub x:Name="Hub" x:Uid="Hub" Header="ZimmerFrei">
+            
+            <HubSection x:Uid="HubSection" Header="APARTMENTS"
+                        DataContext="{Binding Apartments}" >
+                <DataTemplate>
+                    <ListView 
+                        AutomationProperties.AutomationId="ItemListViewSection3"
+                        AutomationProperties.Name="Items In Group"
+                        SelectionMode="None"
+                        IsItemClickEnabled="True"
+                        ItemsSource="{Binding apartment}"
+                        ItemTemplate="{StaticResource StandardTripleLineItemTemplate}"
+                        ItemClick="ItemView_ItemClick"
+                        ContinuumNavigationTransitionInfo.ExitElementContainer="True">
+                    </ListView>
+                </DataTemplate>
+            </HubSection>
+        </Hub>
+    </Grid>
+</Page>
