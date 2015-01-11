@@ -24,7 +24,7 @@
             <Border Background="{ThemeResource ListViewItemPlaceholderBackgroundThemeBrush}" Margin="0,9.5,0,0" Grid.Column="0" HorizontalAlignment="Left">
                 <Image Source="{Binding Cover_photo}" Stretch="UniformToFill" AutomationProperties.Name="{Binding Title}" Height="79" Width="79"/>
             </Border>
-            <StackPanel Grid.Column="1" Margin="14.6,0,0,0">
+            <StackPanel Grid.Column="1" Margin="14.5,0,0,0">
                 <TextBlock Text="{Binding Name}" Style="{ThemeResource ListViewItemTextBlockStyle}" FontFamily="Global User Interface"/>
                 <TextBlock Text="{Binding Description}" Style="{ThemeResource ListViewItemContentTextBlockStyle}" Foreground="{ThemeResource PhoneMidBrush}" FontFamily="Global User Interface" />
                 <TextBlock Text="{Binding Stars}" Style="{ThemeResource ListViewItemSubheaderTextBlockStyle}" />

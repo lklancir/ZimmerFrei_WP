@@ -15,7 +15,7 @@ namespace ZimmerFrei.Data
 
     public class ApartmentData
     {
-        public ApartmentData(String id, String name, String description, String capacity, String stars, String address, String email, String phone, String phone2, String rating, String lat, String lng, String price, String cover_photo, String owner_id, String type_id, String city_id)
+        public ApartmentData(String id, String name, String description, String capacity, String stars, String address, String email, String phone, String phone2, String rating, String lat, String lng, String price, String cover_photo, String owner_id, String type_id, String city_id, String created_at, String updated_at)
         {
             this.Id = id;
             this.Name = name;
@@ -34,6 +34,8 @@ namespace ZimmerFrei.Data
             this.Owner_id = owner_id;
             this.Type_id = type_id;
             this.City_id = city_id;
+            this.Created_at = created_at;
+            this.Updated_at = updated_at;
 
 
         }
@@ -55,6 +57,8 @@ namespace ZimmerFrei.Data
         public string Owner_id { get; private set; }
         public string Type_id { get; private set; }
         public string City_id { get; private set; }
+        public string Created_at { get; set; }
+        public string Updated_at { get; set; }
 
         public override string ToString()
         {
@@ -94,8 +98,7 @@ namespace ZimmerFrei.Data
 
         private async Task GetDataAsync()
         {
-            if (this._apartments.Count != 0)
-                return;
+            if (this._apartments.Count != 0) return;
 
             Uri dataUri = new Uri("ms-appx:///DataModel/Apartments.json");
             StorageFile file = await StorageFile.GetFileFromApplicationUriAsync(dataUri);
@@ -106,23 +109,25 @@ namespace ZimmerFrei.Data
             foreach (JsonValue apartmentValue in jsonArray)
             {
                 JsonObject apartmentObject = apartmentValue.GetObject();
-                ApartmentData apartment = new ApartmentData(apartmentObject["Id"].GetString(),
-                                                            apartmentObject["Name"].GetString(),
-                                                            apartmentObject["Description"].GetString(),
-                                                            apartmentObject["Capacity"].GetString(),
-                                                            apartmentObject["Stars"].GetString(),
-                                                            apartmentObject["Address"].GetString(),
-                                                            apartmentObject["Email"].GetString(),
-                                                            apartmentObject["Phone"].GetString(),
-                                                            apartmentObject["Phone2"].GetString(),
-                                                            apartmentObject["Rating"].GetString(),
-                                                            apartmentObject["Lat"].GetString(),
-                                                            apartmentObject["Lng"].GetString(),
-                                                            apartmentObject["Price"].GetString(),
-                                                            apartmentObject["Cover_photo"].GetString(),
-                                                            apartmentObject["Owner_id"].GetString(),
-                                                            apartmentObject["Type_id"].GetString(),
-                                                            apartmentObject["City_id"].GetString());
+                ApartmentData apartment = new ApartmentData(apartmentObject["id"].GetString(),
+                                                            apartmentObject["name"].GetString(),
+                                                            apartmentObject["description"].GetString(),
+                                                            apartmentObject["capacity"].GetString(),
+                                                            apartmentObject["stars"].GetString(),
+                                                            apartmentObject["address"].GetString(),
+                                                            apartmentObject["email"].GetString(),
+                                                            apartmentObject["phone"].GetString(),
+                                                            apartmentObject["phone2"].GetString(),
+                                                            apartmentObject["rating"].GetString(),
+                                                            apartmentObject["lat"].GetString(),
+                                                            apartmentObject["lng"].GetString(),
+                                                            apartmentObject["price"].GetString(),
+                                                            apartmentObject["cover_photo"].GetString(),
+                                                            apartmentObject["owner_id"].GetString(),
+                                                            apartmentObject["type_id"].GetString(),
+                                                            apartmentObject["city_id"].GetString(),
+                                                            apartmentObject["created_at"].GetString(),
+                                                            apartmentObject["updated_at"].GetString());
 
                 this.Apartments.Add(apartment);
             }
