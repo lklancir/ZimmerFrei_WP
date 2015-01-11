@@ -60,7 +60,6 @@ namespace ZimmerFrei_v0._1
         {
             var apartmentData = await DataSource.GetApartmentsAsync();
             this.DefaultViewModel["Apartments"] = apartmentData;
-            
         }
 
         
