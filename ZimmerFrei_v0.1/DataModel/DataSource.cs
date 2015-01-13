@@ -13,7 +13,10 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Imaging;
 
 namespace ZimmerFrei.Data
-{
+
+{   
+    // DataContract is used to communicate and share data from the DataModel to the View Models 
+    //(e.g. ListPage.xaml)
     [DataContract]
     public class Apartment
     {
@@ -65,6 +68,12 @@ namespace ZimmerFrei.Data
         public List<Apartment> Apartments { get; private set; }
     }
 
+    /// <summary>
+    /// Creates a collection of groups and items with content read from a json file.
+    /// 
+    /// DataSource initializes with data read from a json file included in the 
+    /// project.  This provides sample data at both design-time and run-time.
+    /// </summary>
     public sealed class DataSource
     {
         private static DataSource _dataSource = new DataSource();
