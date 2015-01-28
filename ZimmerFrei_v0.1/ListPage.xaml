@@ -12,18 +12,18 @@
 
     <Page.Resources>
         <DataTemplate x:Key="StandardTripleLineItemTemplate">
-            <Grid Margin="0,0,0,20">
+            <Grid Margin="0,0,0,0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
 
                 <Border Background="{ThemeResource ListViewItemPlaceholderBackgroundThemeBrush}" VerticalAlignment="Top">
-                    <Image Source="{Binding CoverPhoto}" Stretch="UniformToFill" AutomationProperties.Name="{Binding Name}" Height="79" Width="79" />
+                    <Image Source="{Binding CoverPhoto}" Stretch="UniformToFill" AutomationProperties.Name="{Binding Name}" Height="266" Margin="0,0,-600.833,0" />
                 </Border>
-                    <StackPanel Grid.Column="1" Margin="15,0,0,0">
+                    <StackPanel Grid.Column="1" Margin="15,20,0,0">
                         <TextBlock Text="{Binding Name}" Style="{ThemeResource ListViewItemTextBlockStyle}" FontFamily="Global User Interface" TextLineBounds="Tight" Margin="0,0,0,10" />
-                    <TextBlock Text="{Binding Description}" Style="{ThemeResource ListViewItemContentTextBlockStyle}" Foreground="{ThemeResource PhoneMidBrush}" TextWrapping="Wrap" FontFamily="Global User Interface" />
+                    <TextBlock Text="{Binding Address}" Style="{ThemeResource ListViewItemContentTextBlockStyle}" Foreground="{ThemeResource PhoneMidBrush}" TextWrapping="Wrap" FontFamily="Global User Interface" />
                     <TextBlock Style="{ThemeResource ListViewItemSubheaderTextBlockStyle}" FontSize="20" FontWeight="Bold" Foreground="{ThemeResource PhoneForegroundBrush}">
                         <Run Text="{Binding Stars}" />
                         <Run> stars</Run>
@@ -36,7 +36,7 @@
     <Grid x:Name="LayoutRoot">
         <Hub x:Name="Hub" x:Uid="Hub" Header="ZimmerFrei">
             
-            <HubSection x:Uid="HubSection" Header="APARTMENTS"
+            <HubSection x:Uid="HubSection 1" Header="APARTMENTS"
                         DataContext="{Binding Apartments}" >
                 <DataTemplate>
                     <ListView 
@@ -51,6 +51,22 @@
                     </ListView>
                 </DataTemplate>
             </HubSection>
+            <HubSection x:Uid="HubSection 2" Header="PARTY"
+                        DataContext="{Binding Apartments}" >
+                <DataTemplate>
+                    <ListView 
+                        AutomationProperties.AutomationId="ItemListViewSection3"
+                        AutomationProperties.Name="Items In Group"
+                        SelectionMode="None"
+                        IsItemClickEnabled="True"
+                        ItemsSource="{Binding}"
+                        ItemTemplate="{StaticResource StandardTripleLineItemTemplate}"
+                        ItemClick="ItemView_ItemClick"
+                        ContinuumNavigationTransitionInfo.ExitElementContainer="True">
+                    </ListView>
+                </DataTemplate>
+            </HubSection>
+            
         </Hub>
     </Grid>
 </Page>

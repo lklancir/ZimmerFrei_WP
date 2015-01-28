@@ -47,7 +47,7 @@ namespace ZimmerFrei_v0._1
 
         private void btnNearMe_Click(object sender, RoutedEventArgs e)
         {
-            Frame.Navigate(typeof(MapPage));
+            Frame.Navigate(typeof(ListPage));
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

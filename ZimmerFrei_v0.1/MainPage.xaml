@@ -9,13 +9,31 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid >
+
+        <Image HorizontalAlignment="Left"
+               Height="708"
+               Margin="0,-30,0,-38" 
+               VerticalAlignment="Top" 
+               Width="400"
+               Source="Assets/Mainpage_bground.png"/>
+
         <Button x:Name="btnNearMe" 
                 Content="Near Me" 
                 HorizontalAlignment="Left" 
-                Margin="99,181,0,0" VerticalAlignment="Top" 
+                Margin="99,206,0,0" VerticalAlignment="Top" 
                 Height="76"
-                Width="216" Click="btnNearMe_Click"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="99,312,0,0" VerticalAlignment="Top" Height="76" Width="216" Click="Button_Click"/>
+                Width="216" 
+                Click="btnNearMe_Click"/>
+        <Button x:Name="btnBestOffers" 
+                Content="The Best Offers" 
+                HorizontalAlignment="Left" 
+                Margin="99,312,0,0" 
+                VerticalAlignment="Top" 
+                Height="76" Width="216" 
+                Click="Button_Click"/>
+
+
+
 
     </Grid>
 </Page>

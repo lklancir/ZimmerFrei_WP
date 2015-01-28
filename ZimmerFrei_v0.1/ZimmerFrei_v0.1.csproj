@@ -80,6 +80,8 @@
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
+    <Content Include="Assets\Logo_Full_1920x1152 %281%29.png" />
+    <Content Include="Assets\Mainpage_bground.png" />
     <Content Include="DataModel\Apartments.json" />
   </ItemGroup>
   <ItemGroup>
@@ -132,6 +134,9 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="DataModel\Apartments1.json" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '12.0' ">
     <VisualStudioVersion>12.0</VisualStudioVersion>
